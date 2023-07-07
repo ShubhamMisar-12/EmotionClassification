@@ -8,9 +8,10 @@ window.addEventListener('load', function() {
     const validationMessage = document.getElementById('validation-message');
 
     form.addEventListener('submit', function(event) {
-        if (experienceInput.value.length < 6) {
+        const wordCount = experienceInput.value.trim().split(/\s+/).length;
+        if (wordCount < 5) {
             event.preventDefault();
-            validationMessage.innerText = 'Characters should be more than 5';
+            validationMessage.innerText = 'Please enter more than 5 words.';
         } else {
             validationMessage.innerText = '';
         }
