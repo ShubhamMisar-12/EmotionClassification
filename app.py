@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, jsonify
+from flask import Flask, render_template
 import pickle
 import re
 import emoji
@@ -37,9 +37,15 @@ X_input = create_features_text("Nice weather today loving it  ♥")
 X_input = X_input.reshape(-1, 300)
 
 
+text = labels_mapping[clf.predict(X_input).item()]
+
 @app.route('/')
 def home():
-    return labels_mapping[clf.predict(X_input).item()]
+    return render_template('index.html')
+
+@app.route('/predict',methods=['POST'])
+def predict():
+    return text
 
 
 if __name__ == "__main__":
