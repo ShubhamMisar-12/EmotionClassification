@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify, flash
 import pickle
 import re
 import emoji
@@ -34,7 +34,6 @@ def create_features_text(text):
 
 
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -49,9 +48,11 @@ def predict():
     #text = request.form.values()
     X_input = create_features_text(text)
     X_input = X_input.reshape(-1, 300)
-    text = labels_mapping[clf.predict(X_input).item()]
+    label = labels_mapping[clf.predict(X_input).item()]
     # return text
-    return "respose: {0}".format(text)
+    #return "respose: {0}".format(text)
+    return render_template('index.html', label=label)
+
 
 
 if __name__ == "__main__":
