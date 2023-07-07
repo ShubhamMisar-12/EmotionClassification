@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import pickle
 import re
 import emoji
@@ -33,11 +33,7 @@ def create_features_text(text):
     return X
 
 
-X_input = create_features_text("Nice weather today loving it  ♥")
-X_input = X_input.reshape(-1, 300)
 
-
-text = labels_mapping[clf.predict(X_input).item()]
 
 @app.route('/')
 def home():
@@ -45,7 +41,17 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    return text
+    text = request.form['experience']
+    
+    # Display the entered text
+    #return render_template('display_text.html', text=text)
+
+    #text = request.form.values()
+    X_input = create_features_text(text)
+    X_input = X_input.reshape(-1, 300)
+    text = labels_mapping[clf.predict(X_input).item()]
+    # return text
+    return "respose: {0}".format(text)
 
 
 if __name__ == "__main__":
