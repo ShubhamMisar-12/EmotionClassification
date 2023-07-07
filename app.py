@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, render_template, request, jsonify, flash
+from flask import Flask, render_template, request, url_for
 import pickle
 import re
 import emoji
