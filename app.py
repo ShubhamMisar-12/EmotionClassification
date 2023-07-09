@@ -40,7 +40,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    text = request.form['experience']
+    text = request.form['expression']
     
     # Display the entered text
     #return render_template('display_text.html', text=text)
