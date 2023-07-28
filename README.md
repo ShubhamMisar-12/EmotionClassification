@@ -16,8 +16,6 @@ Emotion Classification is an NLP task that predicts the emotional content or sen
 
 ## Word2Vec
 
-![Word2Vec](https://example.com/word2vec-image.jpg)
-
 Word2Vec is a popular algorithm used for natural language processing (NLP) tasks, particularly in the field of word embeddings. It was introduced by researchers at Google in 2013 and has since become a widely adopted technique for capturing word representations in a continuous vector space.
 
 ### Basic Idea
@@ -79,7 +77,7 @@ This is a Flask app for Emotion Classification based on the provided dataset and
 1. Clone this repository to your local machine.
 2. Install the required dependencies using the `requirements.txt` file.
 3. Run the Flask app by executing `app.py`.
-4. Access the app in your web browser at `http://localhost:5000/`.
+4. Access the app in your web browser at `http://localhost:{PORT_NO}/`.
 
 ## Folder Structure
 
