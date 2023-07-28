@@ -7,7 +7,7 @@ from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
 import gensim.downloader as api
 
-model = api.load('word2vec-google-news-300')
+model = api.load('word2vec-google-news-300', mmap='r')
 vocab = set(model.key_to_index.keys())
 
 app = Flask(__name__)
