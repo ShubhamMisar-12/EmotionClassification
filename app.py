@@ -7,11 +7,8 @@ from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
 import gensim.downloader as api
 
-from gensim.models import KeyedVectors
+model = api.load('word2vec-google-news-300', mmap='r')
 
-model = api.load('word2vec-google-news-300')
-model.save_word2vec_format('word2vec-google-news-300.bin', binary=True)
-model = KeyedVectors.load_word2vec_format('word2vec-google-news-300.bin', binary=True)
 vocab = set(model.key_to_index.keys())
 
 app = Flask(__name__)
