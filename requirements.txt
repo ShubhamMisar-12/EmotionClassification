@@ -4,6 +4,5 @@ pandas
 numpy
 matplotlib
 gunicorn
-re
 emoji
 gensim
